@@ -17,7 +17,6 @@ namespace VG0DQ7.Classes
         public int Minute { get { return time % 60; } }
         public int CostOfService { get { return time * 250; } }
 
-        //c
         //Time of the work, string for display purpose
         public string WorkTime
         {
