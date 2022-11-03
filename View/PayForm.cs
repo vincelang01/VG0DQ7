@@ -20,12 +20,14 @@ namespace VG0DQ7
             int TotalNumberOfWorks = 0;
             int TotalWorkCost = 0;
             int TotalCostOfService = 0;
+            int TotalWorkTime = 0;
 
             foreach(Services services in data.Services)
             {
                 TotalNumberOfWorks += services.TotalNumberOfWork;
                 TotalWorkCost += services.TotalWorkTimeCost;
                 TotalCostOfService += services.TotalCostOfService;
+                TotalWorkTime += services.TotalTimeOfWork;
             }
             int TotalCost = TotalWorkCost + TotalCostOfService;
 
@@ -33,6 +35,7 @@ namespace VG0DQ7
             txt_NumberOfWorks.Text = TotalNumberOfWorks.ToString() + " db";
             txt_TotalCostOfService.Text = TotalCostOfService.ToString() + " Ft";
             txt_TotalWorkCost.Text = TotalWorkCost.ToString() + " Ft";
+            txt_TotalWorkTime.Text = $"{(TotalWorkTime % 60 == 0 ? TotalWorkTime / 60 + " ó" + " 0 p" : TotalWorkTime / 60 + " ó " + TotalWorkTime % 60 + " p")}";
             txt_TotalAmount.Text = TotalCost.ToString() + " Ft";
 
             StaticData.Instance.Services.Clear();

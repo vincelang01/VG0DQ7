@@ -26,6 +26,15 @@ namespace VG0DQ7.Classes
             get { return (from item in works select item.CostOfWork).Sum(); }
         }
 
+        public int TotalTimeOfWork
+        {
+            get
+            {
+                var totalMinute = (from item in works select item.Minute + item.Hour * 60).Sum();
+                return totalMinute;
+            }
+        }
+
         public int TotalNumberOfWork
         {
             get { return works.Count; }

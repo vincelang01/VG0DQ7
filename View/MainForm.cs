@@ -70,7 +70,7 @@ namespace VG0DQ7
 
         private void névjegyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("VG0DQ7\n" + DateTime.Now.ToShortDateString(), "Névjegy", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Lang Vince\nVG0DQ7\n" + DateTime.Now.ToShortDateString(), "Névjegy", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void MainForm_Load(object sender, EventArgs e)

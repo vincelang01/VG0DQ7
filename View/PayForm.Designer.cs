@@ -38,6 +38,8 @@
             this.txt_TotalAmount = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txt_NumberOfWorks = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txt_TotalWorkTime = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -145,17 +147,40 @@
             this.txt_NumberOfWorks.TabIndex = 1;
             this.txt_NumberOfWorks.Text = "0 db";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(29, 173);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(113, 21);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Munkák ideje:";
+            // 
+            // txt_TotalWorkTime
+            // 
+            this.txt_TotalWorkTime.AutoSize = true;
+            this.txt_TotalWorkTime.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_TotalWorkTime.ForeColor = System.Drawing.Color.Red;
+            this.txt_TotalWorkTime.Location = new System.Drawing.Point(204, 173);
+            this.txt_TotalWorkTime.Name = "txt_TotalWorkTime";
+            this.txt_TotalWorkTime.Size = new System.Drawing.Size(43, 21);
+            this.txt_TotalWorkTime.TabIndex = 1;
+            this.txt_TotalWorkTime.Text = "0 Ft";
+            // 
             // PayForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(365, 259);
             this.Controls.Add(this.txt_TotalAmount);
+            this.Controls.Add(this.txt_TotalWorkTime);
             this.Controls.Add(this.txt_TotalCostOfService);
             this.Controls.Add(this.txt_TotalWorkCost);
             this.Controls.Add(this.txt_NumberOfWorks);
             this.Controls.Add(this.txt_totalNumberOfWorkSheet);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -181,5 +206,7 @@
         private System.Windows.Forms.Label txt_TotalAmount;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label txt_NumberOfWorks;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label txt_TotalWorkTime;
     }
 }
