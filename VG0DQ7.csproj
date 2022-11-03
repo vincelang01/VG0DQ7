@@ -113,7 +113,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Background\female-automotive-mechanic-repair-car-free-vector.jpg" />
+    <None Include="Images\female-automotive-mechanic-repair-car-free-vector.jpg" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
