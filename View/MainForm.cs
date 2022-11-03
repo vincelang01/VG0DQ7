@@ -16,6 +16,8 @@ namespace VG0DQ7
     public partial class MainForm : Form
     {
         List<Work> works;
+        Label timeLabel = new Label();
+        Label dateLabel = new Label();
         public MainForm()
         {
             InitializeComponent();
@@ -68,9 +70,11 @@ namespace VG0DQ7
             }
         }
 
+        AboutForm abForm = new AboutForm();
         private void névjegyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Lang Vince\nVG0DQ7\n" + DateTime.Now.ToShortDateString(), "Névjegy", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            abForm.Show();
+            abForm.Activate();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
