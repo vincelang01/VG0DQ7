@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PayForm));
             this.label1 = new System.Windows.Forms.Label();
             this.txt_totalNumberOfWorkSheet = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -161,7 +162,7 @@
             // 
             this.txt_TotalWorkTime.AutoSize = true;
             this.txt_TotalWorkTime.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_TotalWorkTime.ForeColor = System.Drawing.Color.Red;
+            this.txt_TotalWorkTime.ForeColor = System.Drawing.Color.MidnightBlue;
             this.txt_TotalWorkTime.Location = new System.Drawing.Point(204, 173);
             this.txt_TotalWorkTime.Name = "txt_TotalWorkTime";
             this.txt_TotalWorkTime.Size = new System.Drawing.Size(43, 21);
@@ -186,6 +187,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "PayForm";
             this.Text = "Fizetés";
