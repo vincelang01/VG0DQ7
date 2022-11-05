@@ -125,7 +125,7 @@
             // 
             this.btn_ok.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_ok.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ok.Location = new System.Drawing.Point(286, 271);
+            this.btn_ok.Location = new System.Drawing.Point(364, 271);
             this.btn_ok.Name = "btn_ok";
             this.btn_ok.Size = new System.Drawing.Size(66, 32);
             this.btn_ok.TabIndex = 3;
