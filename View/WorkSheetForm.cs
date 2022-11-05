@@ -154,7 +154,18 @@ namespace VG0DQ7
 
         private void btn_record_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Rögzíti a munkalapot?", "Munkalap", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            bool hasTrue = false;
+            int j = 0;
+            while(j < dataGridView1.Rows.Count && !hasTrue)
+            {
+                if (dataGridView1.Rows[j].Cells[3].Value.Equals(true))
+                {
+                    hasTrue = true;
+                }
+                j++;
+            }
+            
+            if(hasTrue && MessageBox.Show("Rögzíti a munkalapot?", "Munkalap", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
@@ -167,6 +178,14 @@ namespace VG0DQ7
                 recordClose = true;
 
                 Close();
+            }
+            else
+            {
+                if(MessageBox.Show("Nincs mentett munka!\nBezárja a lapot?", "Figyelmeztetés", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    recordClose = true;
+                    Close();
+                }
             }
         }
     }
