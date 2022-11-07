@@ -10,11 +10,12 @@ namespace VG0DQ7.Classes
         public List<T> LoadFromFile(string fileName, Func<string[], T> parserFunc)
         {
             List<T> listT = new List<T>();
-            List<string> lineIn = File.ReadAllLines(fileName).ToList();
-            foreach(string line in lineIn)
+            var fileReader = new StreamReader(fileName);
+            while (!fileReader.EndOfStream)
             {
-                listT.Add(parserFunc(line.Split(';')));
+                listT.Add(parserFunc(fileReader.ReadLine().Split(';')));
             }
+            fileReader.Close();
             return listT;
         }
     }
