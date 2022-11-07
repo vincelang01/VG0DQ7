@@ -149,7 +149,7 @@
             this.MaximizeBox = false;
             this.Name = "AboutForm";
             this.ShowIcon = false;
-            this.Text = "AboutForm";
+            this.Text = "Névjegy";
             this.ResumeLayout(false);
             this.PerformLayout();
 
