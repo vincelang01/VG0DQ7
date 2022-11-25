@@ -13,7 +13,6 @@ namespace VG0DQ7
 {
     public partial class WorkSheetForm : Form
     {
-        StaticData staticData = StaticData.Instance;
         Services serviceOrder { get; set; }
         bool recordClose = false;
         private DataTable dt;
@@ -36,7 +35,7 @@ namespace VG0DQ7
             };
             DataColumn CostOfMaterial = new DataColumn()
             {
-                ColumnName = "AnyagKöltség",
+                ColumnName = "Anyagköltség",
                 DataType = typeof(string),
                 ReadOnly = true
             };
@@ -65,10 +64,10 @@ namespace VG0DQ7
             };
             dt.Columns.Add(CostOfService);
 
-            foreach (Work item in staticData.works)
+            foreach (Work item in StaticData.works)
             {
                 bool checkBox = false;
-                dt.Rows.Add(item.Name, item.CostOfWork.ToString() + " Ft", item.WorkTime, checkBox, " ");
+                dt.Rows.Add(item.Name, item.materialCost.ToString() + " Ft", item.getWorkTime(), checkBox, " ");
             }
             datagridviewDesign();
         }
@@ -102,22 +101,22 @@ namespace VG0DQ7
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            List<Work> works = StaticData.Instance.works;
+            List<Work> works = StaticData.works;
             if (dataGridView1.DataSource != null)
             {
                 bool newBool = false;
 
                 DataRow dr = dt.NewRow();
-                dr[0] = staticData.works[e.RowIndex].Name.ToString();
-                dr[1] = staticData.works[e.RowIndex].CostOfWork.ToString() + " Ft";
-                dr[2] = staticData.works[e.RowIndex].WorkTime.ToString();
+                dr[0] = works[e.RowIndex].Name.ToString();
+                dr[1] = works[e.RowIndex].materialCost.ToString() + " Ft";
+                dr[2] = works[e.RowIndex].getWorkTime().ToString();
 
                 if (dt.Rows[e.RowIndex][3].Equals(true))
                 {
                     newBool = true;
                     
-                    dr[4] = staticData.works[e.RowIndex].CostOfService.ToString() + " Ft";
-                    serviceOrder.AddItem(staticData.works[e.RowIndex]);
+                    dr[4] = works[e.RowIndex].CostOfWork.ToString() + " Ft";
+                    serviceOrder.AddItem(works[e.RowIndex]);
                     txt_costOfService.Text = serviceOrder.TotalWorkTimeCost.ToString() + " Ft";
                     txt_workCost.Text = serviceOrder.TotalCostOfService.ToString() + " Ft";
                 }
@@ -125,7 +124,7 @@ namespace VG0DQ7
                 {
                     newBool = false;
                     dr[4] = " ";
-                    serviceOrder.RemoveItem(staticData.works[e.RowIndex]);
+                    serviceOrder.RemoveItem(works[e.RowIndex]);
                     txt_costOfService.Text = serviceOrder.TotalWorkTimeCost.ToString() + " Ft";
                     txt_workCost.Text = serviceOrder.TotalCostOfService.ToString() + " Ft";
                 }
@@ -171,21 +170,13 @@ namespace VG0DQ7
                 {
                     if (dataGridView1.Rows[i].Cells[3].Value.Equals(true))
                     {
-                        serviceOrder.AddItem(staticData.works[i]);
+                        serviceOrder.AddItem(StaticData.works[i]);
                     }
                 }
-                StaticData.Instance.Services.Add(serviceOrder);
+                StaticData.workSheets.Add(serviceOrder);
                 recordClose = true;
 
                 Close();
-            }
-            else
-            {
-                if(MessageBox.Show("Nincs mentett munka!\nBezárja a lapot?", "Figyelmeztetés", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                {
-                    recordClose = true;
-                    Close();
-                }
             }
         }
     }

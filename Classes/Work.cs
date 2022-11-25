@@ -8,29 +8,24 @@ namespace VG0DQ7.Classes
 {
     public class Work
     {
-        public string Name { get; }
-        private int time;
-        private int costOfWork;
+        public String Name { get; private set; }
+        public int materialCost { get; private set; }
+        public int time;
 
-        public int CostOfWork { get { return costOfWork; } }
         public int Hour { get { return time / 60; } }
         public int Minute { get { return time % 60; } }
-        public int CostOfService { get { return time * 250; } }
+        public int CostOfWork { get { return (Hour * 15000) + (Minute * 15000/60); } }
 
-        //Time of the work, string for display purpose
-        public string WorkTime
+        public String getWorkTime()
         {
-            get
-            {
-                return $"{(Hour > 0 ? Hour + " ó" : "")}" + $"{(Minute > 0 ? Minute + " p" : " 0 p")}";
-            }
+            return $"{(Hour > 0 ? Hour + " ó " : "")}" + $"{(Minute > 0 ? Minute + " p" : " 0 p")}";
         }
 
-        public Work(string name, int time, int costOfWork)
+        public Work(String Name, int time, int materialCost)
         {
-            Name = name;
+            this.Name = Name;
             this.time = time;
-            this.costOfWork = costOfWork;
+            this.materialCost = materialCost;
         }
     }
 }

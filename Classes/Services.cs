@@ -23,7 +23,7 @@ namespace VG0DQ7.Classes
 
         public int TotalCostOfService
         {
-            get { return (from item in works select item.CostOfWork).Sum(); }
+            get { return (from item in works select item.materialCost).Sum(); }
         }
 
         public int TotalTimeOfWork

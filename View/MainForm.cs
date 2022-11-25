@@ -16,8 +16,6 @@ namespace VG0DQ7
     public partial class MainForm : Form
     {
         List<Work> works;
-        Label timeLabel = new Label();
-        Label dateLabel = new Label();
         public MainForm()
         {
             InitializeComponent();
@@ -51,8 +49,7 @@ namespace VG0DQ7
             {
                 try
                 {
-                    works = new List<Work>(new Loader<Work>().LoadFromFile(openFileDialog.FileName, Parser.Parse));
-                    StaticData.Instance.SetData(works);
+                    StaticData.works = new List<Work>(new Loader<Work>().LoadFromFile(openFileDialog.FileName, Parser.Parse));
                     munkalapToolStripMenuItem.Enabled = true;
 
                 } catch(FileNotFoundException ex)
@@ -85,12 +82,12 @@ namespace VG0DQ7
         private void munkalapToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new WorkSheetForm().ShowDialog();
-            if(StaticData.Instance.Services.Count > 0) { fizetésToolStripMenuItem.Enabled = true; }
+            if(StaticData.workSheets.Count > 0) { fizetésToolStripMenuItem.Enabled = true; }
         }
 
         private void fizetésToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(StaticData.Instance.Services.Count == 0) { MessageBox.Show("Nincs rögzített munkalap!");  }
+            if(StaticData.workSheets.Count == 0) { MessageBox.Show("Nincs rögzített munkalap!");  }
             else if(MessageBox.Show("Biztosan szeretne fizetni?\n", "Fizetés megerősítése", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 new PayForm().ShowDialog();
